@@ -87,7 +87,7 @@ def main():
 	audio_url = get_audio_url(video_url)
 	if audio_url is None:
 		schedule_notification("No audio URL was found 😱️")
-		return
+		sys.exit()
 
 	# Open the audio URL in the VLC app for streaming
 	open_url(f'vlc://{audio_url}')

@@ -22,7 +22,7 @@ try:
 	get_share_sheet_content = appex.get_text
 	get_clipboard = clipboard.get
 	schedule_notification = notification.schedule
-	open_url_in_vlc = webbrowser.open
+	open_url = webbrowser.open
 except ImportError:
 	try:
 		# Try to import Pyto app builtin modules
@@ -33,18 +33,19 @@ except ImportError:
 		# noinspection PyUnresolvedReferences
 		import pasteboard
 
-
+		# Pyto does not have this functionality, so we do nothing
 		def get_share_sheet_content():
-			# Pyto does not have this functionality, so we do nothing
 			pass
 
+		# Wrap Pyto internal schedule notification method
 		def schedule_notification(msg):
-			notification = notifications.Notification(message=msg)
-			notifications.schedule_notificatio(notification)
+			notification = notifications.Notification()
+			notification.message = msg
+			notifications.schedule_notification(notification, 0.1, False)
 
 		# Bind function/method names
 		get_clipboard = pasteboard.string
-		open_url_in_vlc = xcallback.open_url
+		open_url = xcallback.open_url
 	except ImportError:
 		print(f'Looks like you have no Pythonista3 or Pyto apps installed 🤦🏽‍♂️')
 		sys.exit()
@@ -89,7 +90,7 @@ def main():
 		return
 
 	# Open the audio URL in the VLC app for streaming
-	open_url_in_vlc(audio_url)
+	open_url(f'vlc://{audio_url}')
 
 
 if __name__ == '__main__':

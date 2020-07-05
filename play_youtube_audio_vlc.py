@@ -43,7 +43,7 @@ except ImportError:
 			notification.message = msg
 			notifications.schedule_notification(notification, 0.1, False)
 
-		# Bind function/method names
+		# Bind function names
 		get_clipboard = pasteboard.string
 		open_url = xcallback.open_url
 	except ImportError:

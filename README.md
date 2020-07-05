@@ -1,4 +1,4 @@
-#### Script that allows to play the audio of a video from Youtube in VLC player app on iOS.
+### Script that allows to play the audio of a video from Youtube in VLC player app on iOS.
 This scrip will only work with [Pythonista 3](http://omz-software.com/pythonista/) or [Pyto](https://pyto.app
 ) and [VLC player app](https://www.videolan.org/vlc/download-ios.html) installed on you iOS device.
 
@@ -9,7 +9,7 @@ Thus, it must be installed first.
 
 If you use Pythonista3 you need to use [stash](https://github.com/ywangd/stash) to install the "youtube-dl" package.
 Please, follow instructions on [stash page](https://github.com/ywangd/stash) to have a working pip in
-Pythonista 3. 
+Pythonista3. 
  
 If you use Pyto, please use its PyPi interface and install the latest version of "youtube-dl"
 
